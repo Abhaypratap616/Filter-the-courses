@@ -1,0 +1,17 @@
+.btn-1{
+    border: 2px solid rgb(0, 0, 0);
+  margin: 5px;
+   width: 89px;
+   height: 25px;
+   border-radius: 7px;
+}
+   .btn-1:hover{
+    background-color: rgb(167, 185, 240);
+    cursor: pointer;
+   }
+
+.btnmain{
+  display: block;
+ text-align: center;
+ margin: auto auto;
+}

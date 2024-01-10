@@ -1,0 +1,14 @@
+.fullcart{
+    display: block;
+}
+.imgsize img {
+width: 600px;
+display: block;
+margin: auto auto;
+margin-top: 2vh;
+}
+.title{
+   
+    width: 600px;
+    margin: auto auto;
+}

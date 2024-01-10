@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Carts from './component/Carts';
+import Filter from './component/Filter';
+import {filterData,apiUrl} from './Data';
+import { useState,useEffect } from 'react';
 function App() {
+  const [dataab,setdataab] = useState([]);
+  const [category,setcategory]= useState(filterData[0].title);
+ async function getdata(){
+  try{
+    const response = await fetch(apiUrl);
+    const datamn = await response.json();
+    console.log(datamn);
+    setdataab(datamn.data);
+  }
+  catch(error){
+    console.log(error);
+  }
+ }
+
+ useEffect(()=>{
+  getdata();
+ }
+  ,[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='headingmain'>
+        <h1 className='heading'>TOP COURSE</h1>
+      </div>
+      <Filter filterprops = {filterData} category={category} setcategory={setcategory} ></Filter>
+      <Carts apiUrlprops ={dataab} category={category} setcategory={setcategory} ></Carts>
     </div>
   );
 }
